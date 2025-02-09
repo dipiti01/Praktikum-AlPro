@@ -1,0 +1,66 @@
+#Soal1
+%matplotlib inline
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0,10)
+y = np.sin(x)
+z = np.cos(x)
+
+plt.plot(x,y,'b', label='Sin')
+plt.plot(x,z,'r', label='Cos')
+plt.xlabel('Radians');
+plt.ylabel('Value');
+plt.title('Plotting Demonstration')
+plt.legend(['Sin','Cos'])
+plt.grid()
+plt.show()
+
+#Soal2
+#a
+grEmasPertama = 25
+hargaBeliEmasPerGr = 650000
+modalAwal = hargaBeliEmasPerGr * grEmasPertama
+
+hargaJualEmasPerGr = 685000
+totalNilaiJualEmas = hargaJualEmasPerGr * grEmasPertama
+
+keuntunganPertama = totalNilaiJualEmas - modalAwal
+persentaseKeuntunganPertama = (keuntunganPertama/modalAwal) * 100
+
+print(f"Keuntungan Pertama: Rp{keuntunganPertama:,} ({persentaseKeuntunganPertama:.2f}%)")
+
+#b
+grEmasPertama = 25
+hargaBeliEmasPerGrPertama = 650000
+modalAwal = hargaBeliEmasPerGrPertama * grEmasPertama
+
+grEmasKedua = 15
+hargaBeliEmasPerGrKedua = 685000
+modalKedua = hargaBeliEmasPerGrKedua * grEmasKedua
+
+totalModal = modalAwal + modalKedua
+totalGrEmas = grEmasPertama + grEmasKedua
+
+hargaJualEmasPerGr = 715000
+totalNilaiJualEmas = hargaJualEmasPerGr * totalGrEmas
+
+KeuntunganKedua = totalNilaiJualEmas - totalModal
+persentaseKeuntunganKedua = (KeuntunganKedua/totalModal) * 100
+
+print(f"Keuntungan Kedua (40gr Emas): Rp{KeuntunganKedua:,} ({persentaseKeuntunganKedua:.2f}%)")
+
+#Soal3
+uangErika = 200000000
+targetDeposito = 400000000
+bunga = 0.10 #pertahun
+
+tahun = 0
+saldo = uangErika
+
+while saldo < targetDeposito:
+    saldo += saldo * bunga
+    tahun += 1
+
+print(f"Waktu yang dibutuhkan untuk mencapai Rp {targetDeposito:,} adalah {tahun} tahun.")
