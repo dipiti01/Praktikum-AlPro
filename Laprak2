@@ -1,0 +1,40 @@
+#soal 1
+tinggiBadan = float(input("Masukkan tinggi badan yang diharapkan (m): "))
+bmi = float(input("Masukkan nilai BMI yang diharapkan: "))
+
+beratYangDiperlukan = (bmi * (tinggiBadan ** 2))
+
+print(f"Berat badan yang diperlukan adalah {beratYangDiperlukan} kg")
+
+#soal2
+def hitungFungsi(x):
+    return x**2 + 2*x + 1
+
+x = int(input("Masukkan bilangan bulat: "))
+
+hasil = hitungFungsi(x)
+print(f"Hasil fungsi dari {x} adalah {hasil}")
+
+#soal3
+def main():
+    gajiPerJam = float(input("Gaji Per Jam (Rp): "))
+    jamPerMinggu = float(input("Jam Kerja Per Minggu: "))
+
+    totalMinggu = 5
+    pendapatanBruto = gajiPerJam * jamPerMinggu * totalMinggu
+    pajak = 0.14 * pendapatanBruto
+    pendapatanNetto = pendapatanBruto - pajak
+    print(f"Pendapatan Netto: {pendapatanNetto}")
+
+    uangBaju = 0.10 * pendapatanNetto
+    uangAlatTulis = 0.01 * pendapatanNetto
+    sisaUang = pendapatanNetto - (uangBaju + uangAlatTulis)
+    print(f"Sisa Uang: {sisaUang}")
+
+    uangSedekah = 0.25 * sisaUang
+    uangAnakYatim = 0.30 * uangSedekah
+    uangKaumDhuafa = uangSedekah - uangAnakYatim
+    print(f"Uang Kaum Dhuafa: {uangKaumDhuafa}")
+          
+if __name__ == "__main__":
+    main()
