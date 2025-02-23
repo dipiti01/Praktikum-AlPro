@@ -1,0 +1,31 @@
+#Pseudocode
+#Soal 1
+INPUT bilangan
+
+IF bilangan < 2
+	PRINT "Bukan Prima"
+ELSE
+	n = 2
+	WHILE bilangan % n != 0
+		n = n + 1
+	IF n == bilangan
+		PRINT "PRIMA"
+	ELSE
+		PRINT "BUKAN PRIMA
+	ENDIF
+ENDIF
+
+#Soal2
+INPUT a, b, c
+
+D = b**2 - 4 * a * c
+
+IF D > = OR D = 0
+	IF D > 0
+		PRINT "Akar Real dan Berlainan"
+	ELSE
+		PRINT "Akar Real dan Kembar"
+	ENDIF
+ELSE
+	PRINT "Akar Imajiner/Tidak Real/Khayal"
+ENDIF
