@@ -1,0 +1,67 @@
+#1
+def perkalian(a, b):
+    hasil = 0
+    print(f"{a} x {b} = ", end=" ")
+
+    for i in range(a):
+        hasil += b
+        if i == a - 1:
+            print(b, end=" ")
+        else:
+            print(b, "+" ,end=" ")
+    
+    print(f"= {hasil}")
+
+#Test case
+perkalian(6, 5)
+perkalian(7, 10)
+
+#2
+def ganjil(bawah, atas):
+    if bawah < atas:
+        if bawah % 2 == 0:
+            bawah += 1
+        for i in range(bawah, atas, 2):
+            print(i, end=" ")
+    
+    else:
+        if bawah % 2 == 0:
+            bawah -= 1
+        for i in range(bawah, atas, -2):
+            print(i, end=" ")
+    
+    print()
+
+#Test Case
+ganjil(10, 30)
+ganjil(97, 82)
+
+#3
+def hitungIPS():
+    jumlahMataKuliah = int(input("Masukkan jumlah mata kuliah: "))
+    totalSKS = jumlahMataKuliah * 3
+
+    totalNilai = 0
+    for i in range(jumlahMataKuliah):
+        while True:
+            nilai = input(f"Masukkan nilai mata kuliah {i+1} (A/B/C/D): ").upper()
+
+            if nilai == "A":
+                bobot = 4
+            elif nilai == "B":
+                bobot = 3
+            elif nilai == "C":
+                bobot = 2
+            elif nilai == "D":
+                bobot = 1
+            else:
+                print("Nilai mata kuliah tidak valid! Masukkan nilai A/B/C/D.")
+                continue
+            
+            totalNilai += bobot * 3
+            break
+
+    ips = totalNilai / totalSKS
+    print(f"IPS: {ips:.2f}")
+
+hitungIPS()
