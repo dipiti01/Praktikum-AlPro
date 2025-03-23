@@ -1,0 +1,35 @@
+#6.1
+n = int(input("Masukkan n = "))
+
+for i in range(n - 1, 1, -1):
+    for j in range(2, (i // 2) + 1):
+        if i % j == 0:
+            break
+    else:
+        print(f"Prima terdekat < {n} adalah {i}")
+        break
+else:
+    print(f"Tidak ada prima < {n}")
+
+#6.2
+n = int(input("Masukkan nilai n = "))
+
+for i in range(n, 0, -1):
+    faktorial = 1
+    for j in range(1, i + 1):
+        faktorial *= j
+    print(faktorial, end=" ")
+    for k in range(i, 0, -1):
+        print(k, end=" ")
+    print()
+
+#6.3
+tinggi = int(input("Masukkan tinggi = "))
+lebar = int(input("Masukkan lebar = "))
+
+angka = 1
+for i in range(tinggi):
+    for j in range(lebar):
+        print(angka, end=" ")
+        angka += 1
+    print()
