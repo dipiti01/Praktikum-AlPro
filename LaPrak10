@@ -1,0 +1,61 @@
+#10.1 tigaBilanganTerbaik
+def tigaBilanganTerbaik(bilangan):
+    if len(bilangan) < 3:
+        raise ValueError("List harus terdiri dari minimal 3 bilangan")
+    
+    terbaik = list(set(bilangan))
+    terbaik.sort(reverse=True)
+    print(terbaik)
+    return terbaik[:3]
+    
+#Test case
+print(tigaBilanganTerbaik([1, 1, 9, 7, 2, 4, 2, 3, 4, 5]))
+
+#10.2 hitungRataRata
+def hitungRataRata():
+    angka = []
+
+    while True:
+        inputan = input("Masukkan angka/ketik done untuk selesai: ")
+
+        if inputan.lower() == "done":
+            break
+
+        try:
+            nilai = float(inputan)
+            angka.append(nilai)
+        except ValueError:
+            print("Mohon masukkan angka dan done saja")
+
+    if len(angka) == 0:
+        print("Tidak ada angka yang dimasukkan")
+    else:
+        rataRata = sum(angka) / len(angka)
+        print(f"Rata-rata angka yang dimasukkan adalah {rataRata:.2f}")
+
+hitungRataRata()
+
+#10.3 kataUnik
+import string
+def kataUnik(namaFile):
+    try:
+        with open(namaFile, 'r', encoding='utf-8') as file:
+            teks = file.read()
+
+        teksBersih = teks.translate(str.maketrans('', '', string.punctuation)).lower()
+
+        kataKata = teksBersih.split()
+
+        kataNonAngka = [kata for kata in kataKata if not kata.isdigit()]
+
+        print("Kata-kata unik dalam artikel:")
+        for kata in kataNonAngka:
+            print(kata)
+
+    except FileNotFoundError:
+        print(f"File '{namaFile}' tidak ditemukan.")
+    except Exception as e:
+        print(f"Terjadi kesalahan: {e}")
+
+# Test Case
+kataUnik("pacuanKudaInternasional.txt")
