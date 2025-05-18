@@ -1,0 +1,57 @@
+#11.1
+data = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
+
+print("key\tvalue\titem")
+
+i = 1
+for key in data:
+    print(f"{key}\t{data[key]}\t{i}")
+    i += 1
+
+#11.2
+listA = ["red", "green", "blue"]
+listB = ["#FF0000", "#008000", "#0000FF"]
+
+listAUpdate = ["green", "blue", "red"]
+
+listBUpdate = ["#008000", "#0000FF", "#FF0000"]
+
+hasil = dict(zip(listAUpdate, listBUpdate))
+print(hasil)
+
+#11.3
+namaFile = input("Masukkan nama file: ")
+try:
+    file = open(namaFile, "r")
+except:
+    print("File tidak ditemukan")
+
+hitungEmail = dict()
+
+for line in file:
+    if line.startswith("From "):
+        words = line.split()
+        email = words[1]
+        hitungEmail[email] = hitungEmail.get(email, 0) + 1
+
+print(hitungEmail)
+
+#11.4
+namaFile = input("Masukkan nama file: ")
+try:
+    file = open(namaFile, "r")
+except:
+    print("File tidak ditemukan")
+
+hitungDomain = {}
+
+for line in file:
+    if line.startswith("From "):
+        words = line.split()
+        if len(words) > 1:
+            email = words[1]
+            domain = email.split("@")[1]
+            hitungDomain[domain] = hitungDomain.get(domain, 0) + 1
+
+print(hitungDomain)
+
