@@ -1,0 +1,106 @@
+#12.1
+n = int(input('Masukkan jumlah kategori: '))
+
+data_aplikasi = {}
+
+for i in range(n):
+    nama_kategori = input(f"\nMasukkan nama kategori ke-{i+1}: ")
+    print(f"Masukkan 5 nama aplikasi di kategori {nama_kategori}:")
+    
+    aplikasi = []
+    for j in range(5):
+        nama_aplikasi = input(f"Nama aplikasi ke-{j+1}: ")
+        aplikasi.append(nama_aplikasi)
+
+    data_aplikasi[nama_kategori] = aplikasi
+
+print(f"\nData aplikasi per kategori:")
+for kategori, daftar in data_aplikasi.items():
+    print(f"{kategori}: {daftar}")
+
+frekuensi_aplikasi = {}
+
+for daftar in data_aplikasi.values():
+    for app in daftar:
+        if app in frekuensi_aplikasi:
+            frekuensi_aplikasi[app] += 1
+        else:
+            frekuensi_aplikasi[app] = 1
+
+hanya_satu_kategori = [app for app, count in frekuensi_aplikasi.items() if count == 1]
+print(f"\nAplikasi yang hanya muncul di satu kategori:")
+print(hanya_satu_kategori)
+
+if n > 2:
+    tepat_dua_kategori = [app for app, count in frekuensi_aplikasi.items() if count == 2]
+    print(f"\nAplikasi yang muncul tepat di dua kategori:")
+    print(tepat_dua_kategori)
+
+#12.2
+# Konversi List ke Set
+data_list = [1, 2, 3, 2, 4, 1]
+print("List awal:", data_list)
+
+set_dari_list = set(data_list)
+print("Set dari List:", set_dari_list)
+print()
+
+# Konversi Set ke List
+data_set = {5, 6, 7, 6}
+print("Set awal:", data_set)
+
+list_dari_set = list(data_set)
+print("List dari Set:", list_dari_set)
+print()
+
+# Konversi Tuple ke Set
+data_tuple = (8, 9, 10, 8)
+print("Tuple awal:", data_tuple)
+
+set_dari_tuple = set(data_tuple)
+print("Set dari Tuple:", set_dari_tuple)
+print()
+
+# Konversi Set ke Tuple
+data_set_2 = {11, 12, 13}
+print("Set awal:", data_set_2)
+
+tuple_dari_set = tuple(data_set_2)
+print("Tuple dari Set:", tuple_dari_set)
+
+#12.3
+def baca_kata_dari_file(nama_file):
+    try:
+        with open(nama_file, 'r') as file:
+            isi = file.read().lower()
+            kata_list = isi.split()
+            return set(kata_list)
+    except FileNotFoundError:
+        print(f"Error: File '{nama_file}' tidak ditemukan.")
+        return None
+    except IOError:
+        print(f"Error: File '{nama_file}' tidak bisa dibaca.")
+        return None
+
+file1 = input("Masukkan nama file pertama: ")
+file2 = input("Masukkan nama file kedua: ")
+
+kata_file1 = baca_kata_dari_file(file1)
+kata_file2 = baca_kata_dari_file(file2)
+
+if kata_file1 is not None and kata_file2 is not None:
+    kata_sama = kata_file1.intersection(kata_file2)
+    print("\nKata-kata yang muncul di kedua file:")
+    if kata_sama:
+        for kata in sorted(kata_sama):
+            print(kata)
+    else:
+        print("(Tidak ada kata yang sama di kedua file.)")
+
+#file1
+Saya adalah seorang mahasiswa yang sekarang berkuliah di UKDW
+dan mengambil jurusan Teknologi Informasi
+
+#file2
+Saya Dita Pranata Tandisau, seorang mahasiswa yang berkuliah di UKDW
+dan mengambil jurusan Teknologi Informasi, prodi Informatika
