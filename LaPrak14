@@ -1,0 +1,67 @@
+#13.1
+def primaAtauBukan(n, divisor=2):
+    if n < 2:
+        return False
+
+    if divisor * divisor > n:
+        return True
+
+    if n % divisor == 0:
+        return False
+
+    return primaAtauBukan(n, divisor + 1)
+
+
+# Test Case
+print(primaAtauBukan(25))
+print(primaAtauBukan(23))
+
+#13.2
+def primaAtauBukan(n, divisor=2):
+    if n < 2:
+        return False
+
+    if divisor * divisor > n:
+        return True
+
+    if n % divisor == 0:
+        return False
+
+    return primaAtauBukan(n, divisor + 1)
+
+
+# Test Case
+print(primaAtauBukan(25))
+print(primaAtauBukan(23))
+
+#13.3
+def PenjumlahanDeretGanjil(n):
+    if n == 1:
+        return 1
+    else:
+        return (2**n - 1) + PenjumlahanDeretGanjil(n - 1)
+    
+#Test Case
+print(PenjumlahanDeretGanjil(3))
+print(PenjumlahanDeretGanjil(4))
+
+#13.4
+def sum_digits(n):
+    if n < 10:
+        return n
+    else:
+        return n % 10 + sum_digits(n // 10)
+
+#Test Case
+print(sum_digits(234))
+print(sum_digits(98765))
+
+#13.5
+def kombinasi(n, r):
+    if r == 0 or r == n:
+        return 1
+    return kombinasi(n - 1, r - 1) + kombinasi(n - 1, r)
+
+#Test Case
+print(kombinasi(5, 2))
+print(kombinasi(6, 3))
